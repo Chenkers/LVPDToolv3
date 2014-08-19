@@ -1,5 +1,4 @@
 #LVPDTool
-========
 
 MTG's LVPD Tool v3
 
