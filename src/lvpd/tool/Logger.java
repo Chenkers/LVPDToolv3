@@ -2,7 +2,6 @@ package lvpd.tool;
 
 
 import java.io.*;
-import static lvpd.tool.FileManager.mainDirectory;
 
 /*
  * Copyright (C) 2014 Chenko
@@ -50,8 +49,19 @@ public class Logger {
             }
         }
         
+        dir = new File(FileManager.errorLogFile);
+        if(!dir.isFile()) {
+            try {
+                dir.createNewFile();
+            }
+            catch (IOException e) {
+                Logger.Logger( e.getClass().getName() + ": " + e.getMessage() );
+            }
+        }
+        
         try {
             System.setOut((new PrintStream(new FileOutputStream(FileManager.logFile))));
+            System.setErr((new PrintStream(new FileOutputStream(FileManager.errorLogFile))));
         }
         catch (FileNotFoundException e) {
             Logger.Logger( e.getClass().getName() + ": " + e.getMessage() );
@@ -60,7 +70,21 @@ public class Logger {
     }
     
     public static void Logger(String string) {
-        java.util.Date date= new java.util.Date();
-        System.out.println("[" + new java.sql.Timestamp(date.getTime()) + "] " + string);
+        
+        java.util.Date date = new java.util.Date();
+        java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String formattedDate = format.format(date);
+        String log = "[" + formattedDate + "] " + string;
+     
+        System.out.println(log);
+        
+        if(MainGUI.textAreaConsole != null) {
+            try {
+                MainGUI.textAreaConsole.setText(new java.util.Scanner(new File(FileManager.logFile)).useDelimiter("\\A").next());
+            }
+            catch (FileNotFoundException e) {
+                Logger.Logger( e.getClass().getName() + ": " + e.getMessage() );
+            }
+        }
     }
 }

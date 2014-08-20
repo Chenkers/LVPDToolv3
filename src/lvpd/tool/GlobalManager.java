@@ -24,7 +24,7 @@ package lvpd.tool;
 public class GlobalManager {
     
     public static final String APP_NAME = "LVPD Tool";
-    public static final String VERSION = "Ver: BETA";
+    public static final String VERSION = "Ver: 1.0.0";
     public static final String AUTHOR = "Chenko";
     public static final String SUPPORT_URL = "https://streamtip.com/t/russian_dr";
     
@@ -42,4 +42,11 @@ public class GlobalManager {
     public static int LifetimeTime = 0;
     public static int LifetimeFine = 0;
     public static int LifetimeStrikes = 0;
+    
+    public static String consoleLog = null;
+    
+    public static final int VALUE_TYPE_MATS = 1;
+    public static final int VALUE_TYPE_POT = 2;
+    public static final int VALUE_TYPE_SPEED = 3;
+    public static final int VALUE_TYPE_COCAINE = 4;
 }

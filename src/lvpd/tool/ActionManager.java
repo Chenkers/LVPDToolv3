@@ -33,17 +33,13 @@ import java.net.URL;
 public class ActionManager {
     
     public static void OnAction(ActionEvent evt) {
-        MainGUI gui = new MainGUI();
         Logger.Logger("Action manager called: " + evt.getActionCommand());
         
         String action = evt.getActionCommand();
         
         switch(action) {
             case "Close":
-                if(evt.getSource() == gui.closeAboutDialog) {
-                    gui.aboutDialog.setVisible(false);
-                }
-                break;
+                MainGUI.aboutDialog.setVisible(false);
             case "Exit":
                 Database.saveGeneral();
                 System.exit(0);
@@ -65,7 +61,11 @@ public class ActionManager {
                 }
                 break;
             case "About the LVPD Tool":
-                gui.aboutDialog.setVisible(true);
+                MainGUI.aboutDialog.setVisible(true);
+                break;
+            case "Show Console":
+                MainGUI.consoleFrame.setVisible(true);
+                Logger.Logger("Opened console window");
                 break;
             case "Support the Dev":
                 try {
@@ -75,6 +75,20 @@ public class ActionManager {
                 catch (IOException | URISyntaxException e) {
                     Logger.Logger( e.getClass().getName() + ": " + e.getMessage() );
                 }
+                break;
+            case "Open Logs Directory":
+                try {
+                    java.awt.Desktop.getDesktop().open(new java.io.File(FileManager.logPath));
+                }
+                catch (IOException e) {
+                    Logger.Logger( e.getClass().getName() + ": " + e.getMessage() );
+                }
+                break;
+            case "<html><b><font color = \"blue\">Calculate":
+                Calculate.Calculate();
+                break;
+            case "<html><b><font color = \"red\">Reset":
+                Reset.Reset();
                 break;
         }
     }

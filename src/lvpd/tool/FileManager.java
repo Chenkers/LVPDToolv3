@@ -28,6 +28,7 @@ public class FileManager {
     public static final String mainDirectory = System.getProperty("user.home") + "\\Documents\\LVPDTool\\";
     public static final String logPath = mainDirectory + "Logs";
     public static final String logFile = logPath + "\\Log.txt";
+    public static final String errorLogFile = logPath + "\\ErrorLog.txt";
     
     
     public static void initFileManager() {

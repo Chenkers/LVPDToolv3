@@ -17,11 +17,12 @@
 
 package lvpd.tool;
 
-import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -50,6 +51,11 @@ public class MainGUI extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         closeAboutDialog = new javax.swing.JButton();
+        consoleFrame = new javax.swing.JFrame();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textAreaConsole = new javax.swing.JTextArea();
+        buttonCopyConsole = new javax.swing.JButton();
+        buttonCloseWindow = new javax.swing.JToggleButton();
         mainScrollPane = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
         catLabelVehicular = new javax.swing.JLabel();
@@ -109,11 +115,78 @@ public class MainGUI extends javax.swing.JFrame {
         jCheckBox41 = new javax.swing.JCheckBox();
         jCheckBox42 = new javax.swing.JCheckBox();
         jSeparator4 = new javax.swing.JSeparator();
+        catLabelHeavy = new javax.swing.JLabel();
+        jCheckBox43 = new javax.swing.JCheckBox();
+        radioButtonAttemptedMurder = new javax.swing.JRadioButton();
+        jCheckBox44 = new javax.swing.JCheckBox();
+        jCheckBox45 = new javax.swing.JCheckBox();
+        radioButtonKidnapping = new javax.swing.JRadioButton();
+        jCheckBox46 = new javax.swing.JCheckBox();
+        jCheckBox47 = new javax.swing.JCheckBox();
+        jCheckBox48 = new javax.swing.JCheckBox();
+        jCheckBox49 = new javax.swing.JCheckBox();
+        jCheckBox50 = new javax.swing.JCheckBox();
+        jCheckBox51 = new javax.swing.JCheckBox();
+        jCheckBox52 = new javax.swing.JCheckBox();
+        jCheckBox53 = new javax.swing.JCheckBox();
+        jCheckBox54 = new javax.swing.JCheckBox();
+        jCheckBox55 = new javax.swing.JCheckBox();
+        jCheckBox56 = new javax.swing.JCheckBox();
+        jSeparator5 = new javax.swing.JSeparator();
+        catLabelCapital = new javax.swing.JLabel();
+        jCheckBox57 = new javax.swing.JCheckBox();
+        jCheckBox58 = new javax.swing.JCheckBox();
+        radioButtonMurder = new javax.swing.JRadioButton();
+        jCheckBox59 = new javax.swing.JCheckBox();
+        jCheckBox60 = new javax.swing.JCheckBox();
+        jCheckBox61 = new javax.swing.JCheckBox();
+        jSeparator6 = new javax.swing.JSeparator();
+        catLabelEditCrime = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        editCrimeList = new javax.swing.JList();
+        editCrimeSearch = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        textFieldTime = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        textFieldFine = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        textFieldStrikes = new javax.swing.JTextField();
+        editCrimeSave = new javax.swing.JButton();
+        jSeparator7 = new javax.swing.JSeparator();
+        catLabeLimits = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        textMaxTime = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        textMaxFine = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        textMaxStrikes = new javax.swing.JTextField();
+        editCrimeSave1 = new javax.swing.JButton();
+        jSeparator8 = new javax.swing.JSeparator();
+        catLabeLimits1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        spinnerPlayerID = new javax.swing.JSpinner();
+        jLabel10 = new javax.swing.JLabel();
+        textFieldName = new javax.swing.JTextField();
+        buttonCalculate = new javax.swing.JButton();
+        buttonReset = new javax.swing.JButton();
+        jSeparator9 = new javax.swing.JSeparator();
+        catLabeLimits2 = new javax.swing.JLabel();
+        labelResults = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        textCommand = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jCheckBox62 = new javax.swing.JCheckBox();
+        jCheckBox63 = new javax.swing.JCheckBox();
+        spinnerMats = new javax.swing.JSpinner();
+        radioButtonAssault = new javax.swing.JRadioButton();
         mainMenuBar = new javax.swing.JMenuBar();
-        menuFile = new javax.swing.JMenu();
+        menuStats = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         menuExit = new javax.swing.JMenuItem();
         menuHelp = new javax.swing.JMenu();
-        menuEditCrimes = new javax.swing.JMenuItem();
         menuToggleCursor = new javax.swing.JMenuItem();
         menuAbout = new javax.swing.JMenu();
         menuAboutDev = new javax.swing.JMenuItem();
@@ -123,7 +196,9 @@ public class MainGUI extends javax.swing.JFrame {
         aboutDialog.setTitle("About the LVPD Tool");
         aboutDialog.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         aboutDialog.setFocusableWindowState(false);
+        aboutDialog.setIconImage(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Logo32.png")));
         aboutDialog.setMinimumSize(new java.awt.Dimension(402, 300));
+        aboutDialog.setResizable(false);
         aboutDialog.setType(java.awt.Window.Type.POPUP);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         aboutDialog.setLocation(dim.width/2-aboutDialog.getSize().width/2, dim.height/2-aboutDialog.getSize().height/2);
@@ -175,6 +250,59 @@ public class MainGUI extends javax.swing.JFrame {
                 .addContainerGap(87, Short.MAX_VALUE))
         );
 
+        consoleFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        consoleFrame.setTitle("Console");
+        consoleFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Logo32.png")));
+        consoleFrame.setMinimumSize(new java.awt.Dimension(900, 530));
+        consoleFrame.setResizable(false);
+
+        textAreaConsole.setEditable(false);
+        textAreaConsole.setColumns(20);
+        textAreaConsole.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        textAreaConsole.setRows(5);
+        jScrollPane2.setViewportView(textAreaConsole);
+
+        buttonCopyConsole.setText("Copy to Clipboard");
+        buttonCopyConsole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCopyConsoleActionPerformed(evt);
+            }
+        });
+
+        buttonCloseWindow.setText("Close Window");
+        buttonCloseWindow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCloseWindowActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout consoleFrameLayout = new javax.swing.GroupLayout(consoleFrame.getContentPane());
+        consoleFrame.getContentPane().setLayout(consoleFrameLayout);
+        consoleFrameLayout.setHorizontalGroup(
+            consoleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(consoleFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(consoleFrameLayout.createSequentialGroup()
+                .addGap(270, 270, 270)
+                .addComponent(buttonCopyConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(buttonCloseWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        consoleFrameLayout.setVerticalGroup(
+            consoleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(consoleFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(consoleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCopyConsole)
+                    .addComponent(buttonCloseWindow))
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(GlobalManager.APP_NAME + " | " + GlobalManager.VERSION + " | By " + GlobalManager.AUTHOR);
         setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Cursor.png")), new Point(getX(),
@@ -187,7 +315,7 @@ catLabelVehicular.setText("Vehicular Offences");
 jCheckBox1.setText("Illegal Parking");
 CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox1.getText()), jCheckBox1);
 
-jCheckBox2.setText("Failure to Provide ID");
+jCheckBox2.setText("Failure to Provide Reg");
 CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox2.getText()), jCheckBox2);
 
 jCheckBox3.setText("Illegal Shortcut");
@@ -216,7 +344,7 @@ jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 catLabelLight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 catLabelLight.setText("Light Offences");
 
-jCheckBox10.setText("Verbal Assualt");
+jCheckBox10.setText("Verbal Assault");
 CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox10.getText()), jCheckBox10);
 
 jCheckBox11.setText("Loitering");
@@ -271,7 +399,7 @@ CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox25.getText()
 
 firearmComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Katana / Brass Knuckles", "Silenced", "Deagle", "Low Caliber", "High Caliber" }));
 
-jCheckBox26.setText("Vehicular Assualt");
+jCheckBox26.setText("Vehicular Assault");
 CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox26.getText()), jCheckBox26);
 
 jCheckBox27.setText("Attempted GTA");
@@ -315,7 +443,7 @@ CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox36.getText()
 jCheckBox37.setText("Unlawful Discharge");
 CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox37.getText()), jCheckBox37);
 
-comboBoxDischarge.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Single", "Multiple/Rapid" }));
+comboBoxDischarge.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Single", "Multiple" }));
 
 jCheckBox38.setText("Public Endangerment");
 CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox38.getText()), jCheckBox38);
@@ -334,217 +462,671 @@ CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox42.getText()
 
 jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-mainPanel.setLayout(mainPanelLayout);
-mainPanelLayout.setHorizontalGroup(
-    mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-    .addGroup(mainPanelLayout.createSequentialGroup()
-        .addContainerGap()
-        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jCheckBox3)
-            .addComponent(jCheckBox2)
-            .addComponent(jCheckBox1)
-            .addComponent(catLabelVehicular, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jCheckBox6)
-            .addComponent(jCheckBox5)
-            .addComponent(jCheckBox4)
-            .addComponent(jCheckBox9)
+catLabelHeavy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+catLabelHeavy.setText("Heavy Offences");
+
+jCheckBox43.setText("Attempted Murder");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox43.getText()), jCheckBox43);
+
+radioButtonAttemptedMurder.setText("<html><i>Of an LEO");
+
+jCheckBox44.setText("Instigating Anarchy");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox44.getText()), jCheckBox44);
+
+jCheckBox45.setText("Kidnapping");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox45.getText()), jCheckBox45);
+
+radioButtonKidnapping.setText("<html><i>Of an LEO");
+
+jCheckBox46.setText("Racketeering");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox46.getText()), jCheckBox46);
+
+jCheckBox47.setText("Armed Robbery");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox47.getText()), jCheckBox47);
+
+jCheckBox48.setText("Illegal Gambling");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox48.getText()), jCheckBox48);
+
+jCheckBox49.setText("Bribery");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox49.getText()), jCheckBox49);
+
+jCheckBox50.setText("Assault");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox50.getText()), jCheckBox50);
+
+jCheckBox51.setText("Assault & Battery");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox51.getText()), jCheckBox51);
+
+jCheckBox52.setText("Assault w/ Deadly Weapon");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox52.getText()), jCheckBox52);
+
+jCheckBox53.setText("Extortion");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox53.getText()), jCheckBox53);
+
+jCheckBox54.setText("Scamming");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox54.getText()), jCheckBox54);
+
+jCheckBox55.setText("Arson");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox55.getText()), jCheckBox55);
+
+jCheckBox56.setText("Aiding & Abetting (Heavy)");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox56.getText()), jCheckBox56);
+
+jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+catLabelCapital.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+catLabelCapital.setText("Capital Offences");
+
+jCheckBox57.setText("Terrorism");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox57.getText()), jCheckBox57);
+
+jCheckBox58.setText("Successful Murder");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox58.getText()), jCheckBox58);
+
+radioButtonMurder.setText("<html><i>Of an LEO");
+
+jCheckBox59.setText("Mass Murder");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox59.getText()), jCheckBox59);
+
+jCheckBox60.setText("Police Corruption");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox60.getText()), jCheckBox60);
+
+jCheckBox61.setText("Piracy (Sea)");
+CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox61.getText()), jCheckBox61);
+
+catLabelEditCrime.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+catLabelEditCrime.setText("Edit Crime");
+
+DefaultListModel listModel = new DefaultListModel<String>();
+for(String key : CrimeManager.crimeObjects.keySet()) {
+    listModel.addElement(key);
+    }
+    editCrimeList.setModel(listModel);
+    editCrimeList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+            editCrimeListValueChanged(evt);
+        }
+    });
+    jScrollPane1.setViewportView(editCrimeList);
+
+    jButton1.setText("Search");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton1ActionPerformed(evt);
+        }
+    });
+
+    jLabel3.setText("<html><b>Time");
+
+    jLabel4.setText("<html><b>Fine");
+
+    jLabel5.setText("<html><b>Strikes");
+
+    editCrimeSave.setText("Save Changes");
+    editCrimeSave.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            editCrimeSaveActionPerformed(evt);
+        }
+    });
+
+    jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+    catLabeLimits.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+    catLabeLimits.setText("Crime Limits");
+
+    jLabel6.setText("<html><b>Max Time");
+
+    jLabel7.setText("<html><b>Max Fine");
+
+    jLabel8.setText("<html><b>Max Strikes");
+
+    editCrimeSave1.setText("Save Changes");
+    editCrimeSave1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            editCrimeSave1ActionPerformed(evt);
+        }
+    });
+
+    jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+    catLabeLimits1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+    catLabeLimits1.setText("Calculate");
+
+    jLabel9.setText("<html><b>Playerid: ");
+
+    jLabel10.setText("<html><b>Criminal Name:");
+
+    textFieldName.setText("No underscore ");
+
+    buttonCalculate.setText("<html><b><font color = \"blue\">Calculate");
+    buttonCalculate.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            buttonCalculateActionPerformed(evt);
+        }
+    });
+
+    buttonReset.setText("<html><b><font color = \"red\">Reset");
+    buttonReset.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            buttonResetActionPerformed(evt);
+        }
+    });
+
+    catLabeLimits2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+    catLabeLimits2.setText("Results");
+
+    labelResults.setText("<html><b>Fine:</b> $0<br><br><b>Time: </b>0 minutes<br><br><b>Strikes: </b>0");
+
+    jLabel12.setText("<html><b>Command:");
+
+    textCommand.setEditable(false);
+
+    jButton2.setText("Copy to Clipboard");
+    jButton2.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton2ActionPerformed(evt);
+        }
+    });
+
+    jCheckBox62.setText("Robbery");
+    CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox62.getText()), jCheckBox62);
+
+    jCheckBox63.setText("Materials Possession");
+    CrimeManager.addCheckBox(CrimeManager.getCrimeObjectByName(jCheckBox63.getText()), jCheckBox63);
+
+    radioButtonAssault.setText("<html><i>Of an LEO");
+
+    javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+    mainPanel.setLayout(mainPanelLayout);
+    mainPanelLayout.setHorizontalGroup(
+        mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(mainPanelLayout.createSequentialGroup()
+            .addContainerGap()
             .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jCheckBox7, javax.swing.GroupLayout.Alignment.TRAILING)
-                .addComponent(jCheckBox8)))
-        .addGap(18, 18, 18)
-        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jCheckBox24)
-            .addComponent(jCheckBox23)
-            .addComponent(jCheckBox22)
-            .addComponent(jCheckBox21)
-            .addComponent(jCheckBox20)
-            .addComponent(catLabelLight, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jCheckBox10)
-            .addComponent(jCheckBox11)
-            .addComponent(jCheckBox12)
-            .addComponent(jCheckBox13)
-            .addComponent(jCheckBox14)
-            .addComponent(jCheckBox15)
-            .addComponent(jCheckBox16)
-            .addComponent(jCheckBox17)
-            .addComponent(jCheckBox18)
-            .addComponent(jCheckBox19))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(catLabelMedium, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jCheckBox31)
-            .addComponent(jCheckBox32)
-            .addComponent(jCheckBox33)
-            .addComponent(jCheckBox34)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox25)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firearmComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jCheckBox3)
+                                .addComponent(jCheckBox2)
+                                .addComponent(jCheckBox1)
+                                .addComponent(catLabelVehicular, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckBox6)
+                                .addComponent(jCheckBox5)
+                                .addComponent(jCheckBox4)
+                                .addComponent(jCheckBox9)
                                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(radioButtonCocaine)
-                                    .addComponent(radioButtonSpeed)
-                                    .addComponent(radioButtonPot))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(spinnerCocaine, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                                    .addComponent(spinnerSpeed)
-                                    .addComponent(spinnerPot)))))
-                    .addComponent(jCheckBox26)
-                    .addComponent(jCheckBox27)
-                    .addComponent(jCheckBox28)
-                    .addComponent(jCheckBox29)
-                    .addComponent(jCheckBox30))
-                .addGap(19, 19, 19)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox39)
-                    .addComponent(jCheckBox38)
-                    .addComponent(jCheckBox35)
-                    .addComponent(jCheckBox36)
-                    .addComponent(jCheckBox37)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboBoxDischarge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboBoxTrafficking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jCheckBox40)
-                    .addComponent(jCheckBox41)
-                    .addComponent(jCheckBox42))))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(451, Short.MAX_VALUE))
+                                    .addComponent(jCheckBox7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jCheckBox8)))
+                            .addGap(18, 18, 18)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jCheckBox24)
+                                .addComponent(jCheckBox23)
+                                .addComponent(jCheckBox22)
+                                .addComponent(jCheckBox21)
+                                .addComponent(jCheckBox20)
+                                .addComponent(catLabelLight, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckBox10)
+                                .addComponent(jCheckBox11)
+                                .addComponent(jCheckBox12)
+                                .addComponent(jCheckBox13)
+                                .addComponent(jCheckBox14)
+                                .addComponent(jCheckBox15)
+                                .addComponent(jCheckBox16)
+                                .addComponent(jCheckBox17)
+                                .addComponent(jCheckBox18)
+                                .addComponent(jCheckBox19))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(catLabelMedium, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckBox33)
+                                .addComponent(jCheckBox34)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jCheckBox25)
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                            .addGap(21, 21, 21)
+                                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(firearmComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(radioButtonCocaine)
+                                                        .addComponent(radioButtonSpeed)
+                                                        .addComponent(radioButtonPot))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(spinnerCocaine, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                                                        .addComponent(spinnerSpeed)
+                                                        .addComponent(spinnerPot)))))
+                                        .addComponent(jCheckBox26)
+                                        .addComponent(jCheckBox27)
+                                        .addComponent(jCheckBox28)
+                                        .addComponent(jCheckBox29)
+                                        .addComponent(jCheckBox30)
+                                        .addComponent(jCheckBox31)
+                                        .addComponent(jCheckBox32))
+                                    .addGap(19, 19, 19)
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jCheckBox63)
+                                        .addComponent(jCheckBox39)
+                                        .addComponent(jCheckBox38)
+                                        .addComponent(jCheckBox35)
+                                        .addComponent(jCheckBox36)
+                                        .addComponent(jCheckBox37)
+                                        .addComponent(jCheckBox40)
+                                        .addComponent(jCheckBox41)
+                                        .addComponent(jCheckBox42)
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                            .addGap(21, 21, 21)
+                                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(comboBoxDischarge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(comboBoxTrafficking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(spinnerMats, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(catLabelHeavy, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckBox44)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addGap(38, 38, 38)
+                                    .addComponent(radioButtonAttemptedMurder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCheckBox43)
+                                .addComponent(jCheckBox45)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addGap(21, 21, 21)
+                                    .addComponent(radioButtonKidnapping, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCheckBox46)
+                                .addComponent(jCheckBox47)
+                                .addComponent(jCheckBox48)
+                                .addComponent(jCheckBox49)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addComponent(jCheckBox50)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(radioButtonAssault, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCheckBox51)
+                                .addComponent(jCheckBox52)
+                                .addComponent(jCheckBox53)
+                                .addComponent(jCheckBox54)
+                                .addComponent(jCheckBox55)
+                                .addComponent(jCheckBox56))
+                            .addGap(18, 18, 18)
+                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(catLabelCapital, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckBox57)
+                                .addComponent(jCheckBox58)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addGap(21, 21, 21)
+                                    .addComponent(radioButtonMurder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCheckBox59)
+                                .addComponent(jCheckBox60)
+                                .addComponent(jCheckBox61)
+                                .addComponent(jCheckBox62))
+                            .addGap(0, 61, Short.MAX_VALUE))
+                        .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addContainerGap())
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addGap(10, 10, 10)
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(catLabelEditCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addComponent(editCrimeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton1)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textFieldFine, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textFieldStrikes)
+                                .addComponent(editCrimeSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(textFieldTime))))
+                    .addGap(18, 18, 18)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(catLabeLimits, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textMaxTime, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textMaxFine, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textMaxStrikes, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editCrimeSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(catLabeLimits1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(42, 42, 42)
+                                    .addComponent(spinnerPlayerID, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(textFieldName))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
+                                        .addComponent(buttonCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(buttonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(42, 42, 42)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelResults, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(catLabeLimits2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(textCommand, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2)
+                            .addGap(193, 193, 193))))))
     );
     mainPanelLayout.setVerticalGroup(
         mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(mainPanelLayout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addGroup(mainPanelLayout.createSequentialGroup()
-                    .addComponent(catLabelMedium, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jCheckBox25)
-                        .addComponent(jCheckBox35))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(firearmComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(comboBoxTrafficking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jCheckBox36)
-                        .addComponent(jCheckBox26))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jCheckBox27)
-                        .addComponent(jCheckBox37))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jCheckBox28)
-                        .addComponent(comboBoxDischarge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jCheckBox29)
-                        .addComponent(jCheckBox38))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jCheckBox30)
-                        .addComponent(jCheckBox39))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(radioButtonCocaine)
-                        .addComponent(spinnerCocaine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCheckBox40))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(radioButtonSpeed)
-                        .addComponent(spinnerSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCheckBox41))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(radioButtonPot)
-                        .addComponent(spinnerPot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jCheckBox42))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jCheckBox31)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jCheckBox32)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jCheckBox33)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jCheckBox34))
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING)
                 .addGroup(mainPanelLayout.createSequentialGroup()
                     .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(mainPanelLayout.createSequentialGroup()
-                            .addComponent(catLabelLight, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(catLabelCapital, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox10)
+                            .addComponent(jCheckBox57)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox11)
+                            .addComponent(jCheckBox58)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(radioButtonMurder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox12)
+                            .addComponent(jCheckBox59)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox13)
+                            .addComponent(jCheckBox60)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox14)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox15)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox16)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox17)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox18)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox19))
+                            .addComponent(jCheckBox61)
+                            .addGap(1, 1, 1)
+                            .addComponent(jCheckBox62))
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addComponent(catLabelHeavy, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox43)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(radioButtonAttemptedMurder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox44)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox45)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(radioButtonKidnapping, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckBox46)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox47)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox48)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox49)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox50)
+                                    .addComponent(radioButtonAssault, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox51)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox52)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox53)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox54)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox55)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox56))
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addComponent(catLabelMedium, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox25)
+                                    .addComponent(jCheckBox35))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(firearmComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBoxTrafficking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBox36)
+                                    .addComponent(jCheckBox26))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox27)
+                                    .addComponent(jCheckBox37))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox28)
+                                    .addComponent(comboBoxDischarge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox29)
+                                    .addComponent(jCheckBox38))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox30)
+                                    .addComponent(jCheckBox39))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(radioButtonCocaine)
+                                    .addComponent(spinnerCocaine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBox40))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(radioButtonSpeed)
+                                    .addComponent(spinnerSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBox41))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(radioButtonPot)
+                                    .addComponent(spinnerPot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBox42))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox31)
+                                    .addComponent(jCheckBox63))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox32)
+                                    .addComponent(spinnerMats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox34))
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(mainPanelLayout.createSequentialGroup()
+                                        .addComponent(catLabelLight, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox15)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox16)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox17)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox19))
+                                    .addGroup(mainPanelLayout.createSequentialGroup()
+                                        .addComponent(catLabelVehicular, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBox9)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox24))
+                            .addComponent(jSeparator4)
+                            .addComponent(jSeparator2)
+                            .addComponent(jSeparator1)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGap(18, 18, 18)
+            .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(mainPanelLayout.createSequentialGroup()
-                            .addComponent(catLabelVehicular, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(textFieldTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(textFieldFine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(textFieldStrikes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox1)
+                            .addComponent(editCrimeSave))
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addComponent(catLabelEditCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox3)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(editCrimeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton1))
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(111, Short.MAX_VALUE))
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addComponent(catLabeLimits, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox4)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(textMaxTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox5)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(textMaxFine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox8)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCheckBox9)))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jCheckBox20)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jCheckBox21)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jCheckBox22)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jCheckBox23)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jCheckBox24))
-                .addComponent(jSeparator2)
-                .addComponent(jSeparator4))
-            .addContainerGap(313, Short.MAX_VALUE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(textMaxStrikes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(editCrimeSave1))
+                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(catLabeLimits1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(catLabeLimits2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(3, 3, 3)
+                            .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(5, 5, 5)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(spinnerPlayerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(textFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addGap(3, 3, 3)
+                                    .addComponent(labelResults)))
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(buttonCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(buttonReset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(mainPanelLayout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(textCommand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton2)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
     );
 
     catLabelVehicular.getAccessibleContext().setAccessibleDescription("");
 
     mainScrollPane.setViewportView(mainPanel);
 
-    menuFile.setText("File");
+    menuStats.setText("File");
+
+    jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+    jMenuItem1.setText("Stats");
+    menuStats.add(jMenuItem1);
+
+    jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+    jMenuItem2.setText("Show Console");
+    jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jMenuItem2ActionPerformed(evt);
+        }
+    });
+    menuStats.add(jMenuItem2);
+
+    jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+    jMenuItem3.setText("Open Logs Directory");
+    jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jMenuItem3ActionPerformed(evt);
+        }
+    });
+    menuStats.add(jMenuItem3);
 
     menuExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
     menuExit.setText("Exit");
@@ -553,20 +1135,13 @@ mainPanelLayout.setHorizontalGroup(
             menuExitActionPerformed(evt);
         }
     });
-    menuFile.add(menuExit);
+    menuStats.add(menuExit);
 
-    mainMenuBar.add(menuFile);
+    mainMenuBar.add(menuStats);
 
     menuHelp.setText("Edit");
 
-    menuEditCrimes.setText("Edit Crimes");
-    menuEditCrimes.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            menuEditCrimesActionPerformed(evt);
-        }
-    });
-    menuHelp.add(menuEditCrimes);
-
+    menuToggleCursor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
     menuToggleCursor.setText("Toggle Custom Cursor");
     menuToggleCursor.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -614,10 +1189,6 @@ mainPanelLayout.setHorizontalGroup(
     setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuEditCrimesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEditCrimesActionPerformed
-        ActionManager.OnAction(evt);
-    }//GEN-LAST:event_menuEditCrimesActionPerformed
-
     private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExitActionPerformed
         ActionManager.OnAction(evt);
     }//GEN-LAST:event_menuExitActionPerformed
@@ -637,6 +1208,84 @@ mainPanelLayout.setHorizontalGroup(
     private void closeAboutDialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeAboutDialogActionPerformed
         aboutDialog.setVisible(false);
     }//GEN-LAST:event_closeAboutDialogActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ActionManager.OnAction(evt);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void buttonCopyConsoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCopyConsoleActionPerformed
+        StringSelection stringSelection = new StringSelection(textAreaConsole.getText());
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(stringSelection, stringSelection);
+        Logger.Logger("Copied console text to clipboard");
+    }//GEN-LAST:event_buttonCopyConsoleActionPerformed
+
+    private void buttonCloseWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCloseWindowActionPerformed
+        consoleFrame.setVisible(false);
+        Logger.Logger("Closed console window");
+    }//GEN-LAST:event_buttonCloseWindowActionPerformed
+
+    private void editCrimeSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCrimeSave1ActionPerformed
+        GlobalManager.MaxTime = Integer.parseInt(textMaxTime.getText());
+        GlobalManager.MaxFine = Integer.parseInt(textMaxFine.getText());
+        GlobalManager.MaxStrikes = Integer.parseInt(textMaxStrikes.getText());
+        Database.saveGeneral();
+        Logger.Logger("Edited crime limits");
+    }//GEN-LAST:event_editCrimeSave1ActionPerformed
+
+    private void editCrimeSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCrimeSaveActionPerformed
+        CrimeObject crime = CrimeManager.getCrimeObjectByName(MainGUI.editCrimeList.getSelectedValue().toString());
+        crime.crimeSetTime(Integer.parseInt(MainGUI.textFieldTime.getText()));
+        crime.crimeSetFine(Integer.parseInt(MainGUI.textFieldFine.getText()));
+        crime.crimeSetStrikes(Integer.parseInt(MainGUI.textFieldStrikes.getText()));
+        CrimeManager.updateToolTip(crime);
+        Database.saveCrime(crime);
+        Logger.Logger("Edit crime " + crime.crimeGetName());
+    }//GEN-LAST:event_editCrimeSaveActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String search = editCrimeSearch.getText();
+        int index = 0;
+        for(String key : CrimeManager.crimeObjects.keySet()) {
+            if(key.toLowerCase().contains(search.toLowerCase())) {
+                textFieldTime.setText(Integer.toString(CrimeManager.crimeObjects.get(key).crimeGetTime()));
+                textFieldFine.setText(Integer.toString(CrimeManager.crimeObjects.get(key).crimeGetFine()));
+                textFieldStrikes.setText(Integer.toString(CrimeManager.crimeObjects.get(key).crimeGetStrikes()));
+                Logger.Logger("Searched for " + search + " and found " + CrimeManager.crimeObjects.get(key).crimeGetName());
+                break;
+            }
+            index ++;
+        }
+        MainGUI.editCrimeList.setSelectedIndex(index);
+        MainGUI.editCrimeList.ensureIndexIsVisible(index);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void editCrimeListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_editCrimeListValueChanged
+        CrimeObject crime = CrimeManager.getCrimeObjectByName(editCrimeList.getSelectedValue().toString());
+        textFieldTime.setText(Integer.toString(crime.crimeGetTime()));
+        textFieldFine.setText(Integer.toString(crime.crimeGetFine()));
+        textFieldStrikes.setText(Integer.toString(crime.crimeGetStrikes()));
+        Logger.Logger("Load crime variables to text fields");
+    }//GEN-LAST:event_editCrimeListValueChanged
+
+    private void buttonCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCalculateActionPerformed
+        ActionManager.OnAction(evt);
+    }//GEN-LAST:event_buttonCalculateActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        StringSelection stringSelection = new StringSelection(textCommand.getText());
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(stringSelection, stringSelection);
+        Logger.Logger("Copied command text to clipboard.");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
+        ActionManager.OnAction(evt);
+    }//GEN-LAST:event_buttonResetActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        ActionManager.OnAction(evt);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -701,14 +1350,31 @@ mainPanelLayout.setHorizontalGroup(
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JDialog aboutDialog;
+    public static javax.swing.JDialog aboutDialog;
+    public javax.swing.JButton buttonCalculate;
+    public javax.swing.JToggleButton buttonCloseWindow;
+    public javax.swing.JButton buttonCopyConsole;
+    public javax.swing.JButton buttonReset;
+    public javax.swing.JLabel catLabeLimits;
+    public javax.swing.JLabel catLabeLimits1;
+    public javax.swing.JLabel catLabeLimits2;
+    public javax.swing.JLabel catLabelCapital;
+    public javax.swing.JLabel catLabelEditCrime;
+    public javax.swing.JLabel catLabelHeavy;
     public javax.swing.JLabel catLabelLight;
     public javax.swing.JLabel catLabelMedium;
     public javax.swing.JLabel catLabelVehicular;
     public javax.swing.JButton closeAboutDialog;
-    public javax.swing.JComboBox comboBoxDischarge;
-    public javax.swing.JComboBox comboBoxTrafficking;
-    public javax.swing.JComboBox firearmComboBox;
+    public static javax.swing.JComboBox comboBoxDischarge;
+    public static javax.swing.JComboBox comboBoxTrafficking;
+    public static javax.swing.JFrame consoleFrame;
+    public static javax.swing.JList editCrimeList;
+    public javax.swing.JButton editCrimeSave;
+    public javax.swing.JButton editCrimeSave1;
+    public static javax.swing.JTextField editCrimeSearch;
+    public static javax.swing.JComboBox firearmComboBox;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton2;
     public javax.swing.JCheckBox jCheckBox1;
     public javax.swing.JCheckBox jCheckBox10;
     public javax.swing.JCheckBox jCheckBox11;
@@ -746,33 +1412,88 @@ mainPanelLayout.setHorizontalGroup(
     public javax.swing.JCheckBox jCheckBox40;
     public javax.swing.JCheckBox jCheckBox41;
     public javax.swing.JCheckBox jCheckBox42;
+    public javax.swing.JCheckBox jCheckBox43;
+    public javax.swing.JCheckBox jCheckBox44;
+    public javax.swing.JCheckBox jCheckBox45;
+    public javax.swing.JCheckBox jCheckBox46;
+    public javax.swing.JCheckBox jCheckBox47;
+    public javax.swing.JCheckBox jCheckBox48;
+    public javax.swing.JCheckBox jCheckBox49;
     public javax.swing.JCheckBox jCheckBox5;
+    public javax.swing.JCheckBox jCheckBox50;
+    public javax.swing.JCheckBox jCheckBox51;
+    public javax.swing.JCheckBox jCheckBox52;
+    public javax.swing.JCheckBox jCheckBox53;
+    public javax.swing.JCheckBox jCheckBox54;
+    public javax.swing.JCheckBox jCheckBox55;
+    public javax.swing.JCheckBox jCheckBox56;
+    public javax.swing.JCheckBox jCheckBox57;
+    public javax.swing.JCheckBox jCheckBox58;
+    public javax.swing.JCheckBox jCheckBox59;
     public javax.swing.JCheckBox jCheckBox6;
+    public javax.swing.JCheckBox jCheckBox60;
+    public javax.swing.JCheckBox jCheckBox61;
+    public javax.swing.JCheckBox jCheckBox62;
+    public javax.swing.JCheckBox jCheckBox63;
     public javax.swing.JCheckBox jCheckBox7;
     public javax.swing.JCheckBox jCheckBox8;
     public javax.swing.JCheckBox jCheckBox9;
     public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel10;
+    public javax.swing.JLabel jLabel12;
     public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel jLabel8;
+    public javax.swing.JLabel jLabel9;
+    public javax.swing.JMenuItem jMenuItem1;
+    public javax.swing.JMenuItem jMenuItem2;
+    public javax.swing.JMenuItem jMenuItem3;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JSeparator jSeparator1;
     public javax.swing.JSeparator jSeparator2;
     public javax.swing.JSeparator jSeparator3;
     public javax.swing.JSeparator jSeparator4;
+    public javax.swing.JSeparator jSeparator5;
+    public javax.swing.JSeparator jSeparator6;
+    public javax.swing.JSeparator jSeparator7;
+    public javax.swing.JSeparator jSeparator8;
+    public javax.swing.JSeparator jSeparator9;
+    public static javax.swing.JLabel labelResults;
     public javax.swing.JMenuBar mainMenuBar;
     public static javax.swing.JPanel mainPanel;
     public javax.swing.JScrollPane mainScrollPane;
     public javax.swing.JMenu menuAbout;
     public javax.swing.JMenuItem menuAboutDev;
-    public javax.swing.JMenuItem menuEditCrimes;
     public javax.swing.JMenuItem menuExit;
-    public javax.swing.JMenu menuFile;
     public javax.swing.JMenu menuHelp;
+    public javax.swing.JMenu menuStats;
     public javax.swing.JMenuItem menuSupportDev;
     public javax.swing.JMenuItem menuToggleCursor;
-    public javax.swing.JRadioButton radioButtonCocaine;
-    public javax.swing.JRadioButton radioButtonPot;
-    public javax.swing.JRadioButton radioButtonSpeed;
-    public javax.swing.JSpinner spinnerCocaine;
-    public javax.swing.JSpinner spinnerPot;
-    public javax.swing.JSpinner spinnerSpeed;
+    public static javax.swing.JRadioButton radioButtonAssault;
+    public static javax.swing.JRadioButton radioButtonAttemptedMurder;
+    public static javax.swing.JRadioButton radioButtonCocaine;
+    public static javax.swing.JRadioButton radioButtonKidnapping;
+    public static javax.swing.JRadioButton radioButtonMurder;
+    public static javax.swing.JRadioButton radioButtonPot;
+    public static javax.swing.JRadioButton radioButtonSpeed;
+    public static javax.swing.JSpinner spinnerCocaine;
+    public static javax.swing.JSpinner spinnerMats;
+    public static javax.swing.JSpinner spinnerPlayerID;
+    public static javax.swing.JSpinner spinnerPot;
+    public static javax.swing.JSpinner spinnerSpeed;
+    public static javax.swing.JTextArea textAreaConsole;
+    public static javax.swing.JTextField textCommand;
+    public static javax.swing.JTextField textFieldFine;
+    public static javax.swing.JTextField textFieldName;
+    public static javax.swing.JTextField textFieldStrikes;
+    public static javax.swing.JTextField textFieldTime;
+    public static javax.swing.JTextField textMaxFine;
+    public static javax.swing.JTextField textMaxStrikes;
+    public static javax.swing.JTextField textMaxTime;
     // End of variables declaration//GEN-END:variables
 }

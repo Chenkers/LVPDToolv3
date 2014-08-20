@@ -88,7 +88,7 @@ public class Database {
     public static void saveCrime(CrimeObject crime) {
         try {
             stmt = main_db.createStatement();
-            String sql = "UPDATE Crimes SET Category = '" + crime.crimeGetCat() + "', Time = '"+ crime.crimeGetTime() + "', Fine = '" + crime.crimeGetFine() + ", Strikes = '" + crime.crimeGetStrikes() + "' WHERE Name = '" + crime.crimeGetName() + "'";
+            String sql = "UPDATE Crimes SET Category = '" + crime.crimeGetCat() + "', Time = '"+ crime.crimeGetTime() + "', Fine = '" + crime.crimeGetFine() + "', Strikes = '" + crime.crimeGetStrikes() + "' WHERE Name = '" + crime.crimeGetName() + "'";
             Logger.Logger("RUNNING QUERY: " + sql);
             stmt.executeUpdate(sql);
             stmt.close();

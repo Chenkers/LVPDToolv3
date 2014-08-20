@@ -33,7 +33,7 @@ public class CrimeManager {
         Logger.Logger("Initializing crime manager...");
         
         loadCrime("Illegal Parking");
-        loadCrime("Failure to Provide ID");
+        loadCrime("Failure to Provide Reg");
         loadCrime("Illegal Shortcut");
         loadCrime("Unlawful Hydraulics");
         loadCrime("Unlawful Nos");
@@ -42,7 +42,7 @@ public class CrimeManager {
         loadCrime("Street Racing");
         loadCrime("Driving w/o Due Care");
         
-        loadCrime("Verbal Assualt");
+        loadCrime("Verbal Assault");
         loadCrime("Loitering");
         loadCrime("Trespassing");
         loadCrime("Indecent Exposure");
@@ -59,16 +59,35 @@ public class CrimeManager {
         loadCrime("Aiding & Abetting (Light)");
         
         loadCrime("Firearm Possession");
-        loadCrime("Firearm Possession (Katana)");
+        loadCrime("Firearm Possession (Katana / Brass Knuckles)");
         loadCrime("Firearm Possession (Silenced)");
         loadCrime("Firearm Possession (Deagle)");
         loadCrime("Firearm Possession (Low Caliber)");
         loadCrime("Firearm Possession (High Caliber)");
-        loadCrime("Vehicular Assualt");
+        loadCrime("Vehicular Assault");
         loadCrime("Attempted GTA");
         loadCrime("Grand Theft Auto");
         loadCrime("DUI");
         loadCrime("Narcotics Possession");
+        loadCrime("Narcotics Possession (Cocaine >= 1)");
+        loadCrime("Narcotics Possession (Cocaine >= 6)");
+        loadCrime("Narcotics Possession (Cocaine >= 21)");
+        loadCrime("Narcotics Possession (Cocaine >= 41)");
+        loadCrime("Narcotics Possession (Cocaine >= 61)");
+        loadCrime("Narcotics Possession (Cocaine >= 81)");
+        loadCrime("Narcotics Possession (Cocaine >= 101)");
+        loadCrime("Narcotics Possession (Cocaine >= 121)");
+        loadCrime("Narcotics Possession (Cocaine >= 141)");
+        loadCrime("Narcotics Possession (Pot >= 1)");
+        loadCrime("Narcotics Possession (Pot >= 21)");
+        loadCrime("Narcotics Possession (Pot >= 101)");
+        loadCrime("Narcotics Possession (Pot >=  201)");
+        loadCrime("Narcotics Possession (Speed >= 1)");
+        loadCrime("Narcotics Possession (Speed >= 6)");
+        loadCrime("Narcotics Possession (Speed >= 21)");
+        loadCrime("Narcotics Possession (Speed >= 51)");
+        loadCrime("Narcotics Possession (Speed >= 101)");
+        loadCrime("Narcotics Possession (Speed >= 201)");
         loadCrime("Impersonating LEO");
         loadCrime("Obstruction");
         loadCrime("Conspiracy");
@@ -86,6 +105,42 @@ public class CrimeManager {
         loadCrime("Lying to an LEO");
         loadCrime("Driving whilst Suspended");
         loadCrime("Aiding & Abetting (Med)");
+        loadCrime("Materials Possession");
+        loadCrime("Materials Possession ( >= 1)");
+        loadCrime("Materials Possession ( >= 11)");
+        loadCrime("Materials Possession ( >= 31)");
+        loadCrime("Materials Possession ( >= 61)");
+        loadCrime("Materials Possession ( >= 91)");
+        loadCrime("Materials Possession ( >= 121)");
+        loadCrime("Materials Possession ( >= 151)");
+        loadCrime("Materials Possession ( >= 301)");
+        loadCrime("Attempted Murder");
+        loadCrime("Attempted Murder (of LEO)");
+        loadCrime("Instigating Anarchy");
+        loadCrime("Kidnapping");
+        loadCrime("Kidnapping (of LEO)");
+        loadCrime("Racketeering");
+        loadCrime("Armed Robbery");
+        loadCrime("Illegal Gambling");
+        loadCrime("Bribery");
+        loadCrime("Assault");
+        loadCrime("Assault & Battery");
+        loadCrime("Assault w/ Deadly Weapon");
+        loadCrime("Assault (of LEO)");
+        loadCrime("Assault & Battery (of LEO)");
+        loadCrime("Assault w/ Deadly Weapon (of LEO)");
+        loadCrime("Extortion");
+        loadCrime("Scamming");
+        loadCrime("Arson");
+        loadCrime("Aiding & Abetting (Heavy)");
+        loadCrime("Robbery");
+        
+        loadCrime("Terrorism");
+        loadCrime("Successful Murder");
+        loadCrime("Successful Murder (of LEO)");
+        loadCrime("Mass Murder");
+        loadCrime("Police Corruption");
+        loadCrime("Piracy (Sea)");
     }
     
     private static void loadCrime(String name) {
@@ -115,4 +170,11 @@ public class CrimeManager {
         return crimeCheckBoxes.get(obj);
     }
     
+    public static void updateToolTip(CrimeObject obj) {
+        for(CrimeObject key : crimeCheckBoxes.keySet()) {
+            if(key == obj) {
+                CrimeManager.crimeCheckBoxes.get(key).setToolTipText("<html><b>" + key.crimeGetName() + "</b><br><br><b>Time: </b>" + key.crimeGetTime() + " minutes<br><b>Fine: </b>$" + key.crimeGetFine() + "<br><b>Strikes:</b> " + key.crimeGetStrikes() + "</html>");
+            }
+        }
+    }
 }

@@ -31,7 +31,7 @@ public class Init {
         CrimeManager.initCrimeManager();
         MainGUI.initGui();
         SplashScreen.splashExit();
-        Logger.Logger("Application loaded.");
+        
         
         int count = 0;
         for(CrimeObject key : CrimeManager.crimeCheckBoxes.keySet()) {
@@ -41,5 +41,11 @@ public class Init {
             }
         }
         Logger.Logger("Counted " + count + " values in crimeCheckBoxes Hashmap");
+        
+        MainGUI.textMaxTime.setText(Integer.toString(GlobalManager.MaxTime));
+        MainGUI.textMaxFine.setText(Integer.toString(GlobalManager.MaxFine));
+        MainGUI.textMaxStrikes.setText(Integer.toString(GlobalManager.MaxStrikes));
+        
+        Logger.Logger("Application loaded.");
     }
 }
