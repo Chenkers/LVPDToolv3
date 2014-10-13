@@ -17,6 +17,8 @@
 
 package lvpd.tool;
 
+import java.awt.Color;
+import java.awt.Transparency;
 import java.io.IOException;
 import javax.sound.sampled.*;
 import javax.swing.*;

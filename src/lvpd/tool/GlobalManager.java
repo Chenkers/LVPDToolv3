@@ -23,10 +23,10 @@ package lvpd.tool;
  */
 public class GlobalManager {
     
-    public static final String APP_NAME = "LVPD Tool";
-    public static final String VERSION = "Ver: 1.0.0";
+    public static final String APP_NAME = "LSPD Tool";
+    public static final String VERSION = "Ver: 2.0.0";
     public static final String AUTHOR = "Chenko";
-    public static final String SUPPORT_URL = "https://streamtip.com/t/russian_dr";
+    public static final String SUPPORT_URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=DYLUBBBUKFHXU&lc=US&item_name=LVPD%20Tool&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted";
     
     public static final int CAT_VEHICULAR = 1;
     public static final int CAT_LIGHT = 2;

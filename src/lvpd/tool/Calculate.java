@@ -57,21 +57,21 @@ public class Calculate {
                         temp = CrimeManager.getCrimeObjectByName("Narcotics Possession (Cocaine >= " + roundValue( (int) MainGUI.spinnerCocaine.getValue(), GlobalManager.VALUE_TYPE_COCAINE) + ")");
                         totalTime += temp.crimeGetTime();
                         totalFine += temp.crimeGetFine();
-                        totalFine += temp.crimeGetStrikes();
+                        totalStrikes += temp.crimeGetStrikes();
                         totalCrimes ++;
                     }
                     if(MainGUI.radioButtonSpeed.isSelected()) {
                         temp = CrimeManager.getCrimeObjectByName("Narcotics Possession (Speed >= " + roundValue( (int) MainGUI.spinnerSpeed.getValue(), GlobalManager.VALUE_TYPE_SPEED) + ")");
                         totalTime += temp.crimeGetTime();
                         totalFine += temp.crimeGetFine();
-                        totalFine += temp.crimeGetStrikes();
+                        totalStrikes += temp.crimeGetStrikes();
                         totalCrimes ++;
                     }
                     if(MainGUI.radioButtonPot.isSelected()) {
                         temp = CrimeManager.getCrimeObjectByName("Narcotics Possession (Pot >= " + roundValue( (int) MainGUI.spinnerPot.getValue(), GlobalManager.VALUE_TYPE_POT) + ")");
                         totalTime += temp.crimeGetTime();
                         totalFine += temp.crimeGetFine();
-                        totalFine += temp.crimeGetStrikes();
+                        totalStrikes += temp.crimeGetStrikes();
                         totalCrimes ++;
                     }  
                 }
@@ -81,7 +81,8 @@ public class Calculate {
                 
                 totalTime += key.crimeGetTime();
                 totalFine += key.crimeGetFine();
-                totalFine += key.crimeGetStrikes();
+                if(key.crimeGetStrikes() > totalStrikes)
+                    totalStrikes = key.crimeGetStrikes();
                 totalCrimes ++;
             }
         }

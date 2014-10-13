@@ -60,7 +60,7 @@ public class ActionManager {
                     GlobalManager.defaultCursor = false;
                 }
                 break;
-            case "About the LVPD Tool":
+            case "About the LSPD Tool":
                 MainGUI.aboutDialog.setVisible(true);
                 break;
             case "Show Console":

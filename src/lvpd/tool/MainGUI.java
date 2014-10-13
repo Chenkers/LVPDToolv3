@@ -22,6 +22,10 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import javax.swing.DefaultListModel;
 
 /**
@@ -56,6 +60,45 @@ public class MainGUI extends javax.swing.JFrame {
         textAreaConsole = new javax.swing.JTextArea();
         buttonCopyConsole = new javax.swing.JButton();
         buttonCloseWindow = new javax.swing.JToggleButton();
+        formCriminalReport = new javax.swing.JFrame();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JSeparator();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel16 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jSeparator11 = new javax.swing.JSeparator();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        textAreaCrimes = new javax.swing.JTextArea();
+        jLabel19 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        textAreaCrimes1 = new javax.swing.JTextArea();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        arrestTimeDate = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        textAreaCrimes2 = new javax.swing.JTextArea();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        textAreaCrimes3 = new javax.swing.JTextArea();
+        jLabel24 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jButton4 = new javax.swing.JButton();
         mainScrollPane = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
         catLabelVehicular = new javax.swing.JLabel();
@@ -180,6 +223,8 @@ public class MainGUI extends javax.swing.JFrame {
         jCheckBox63 = new javax.swing.JCheckBox();
         spinnerMats = new javax.swing.JSpinner();
         radioButtonAssault = new javax.swing.JRadioButton();
+        jButton3 = new javax.swing.JButton();
+        buttonCreateCrimnalReport = new javax.swing.JButton();
         mainMenuBar = new javax.swing.JMenuBar();
         menuStats = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -194,119 +239,388 @@ public class MainGUI extends javax.swing.JFrame {
 
         aboutDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         aboutDialog.setTitle("About the LVPD Tool");
-        aboutDialog.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        aboutDialog.setFocusableWindowState(false);
-        aboutDialog.setIconImage(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Logo32.png")));
-        aboutDialog.setMinimumSize(new java.awt.Dimension(402, 300));
-        aboutDialog.setResizable(false);
-        aboutDialog.setType(java.awt.Window.Type.POPUP);
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        aboutDialog.setLocation(dim.width/2-aboutDialog.getSize().width/2, dim.height/2-aboutDialog.getSize().height/2);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("LVPD Tool Version 3");
-
-        jLabel2.setText("<html>\n\nThe LVPD Tool Version 3 was coded by Chenko for the MTG LVPD. This tool has many improvements from the first two versions including the ability to edit the times and fines of almost every crime. All of the data is stored in a SQLite database minimizing the harddrive footprint of the application while maximizing functionality. It also features extensive error logging and task logging to allow for quick and easy fixing of any problems that may arrise. \n<br><br>\nIf you wish to support the developer hit <b>About</b> and then <b>Support the Dev</b>");
-
-        closeAboutDialog.setText("Close");
-        closeAboutDialog.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeAboutDialogActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout aboutDialogLayout = new javax.swing.GroupLayout(aboutDialog.getContentPane());
-        aboutDialog.getContentPane().setLayout(aboutDialogLayout);
-        aboutDialogLayout.setHorizontalGroup(
-            aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(aboutDialogLayout.createSequentialGroup()
-                .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(aboutDialogLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-                            .addComponent(jSeparator3)
-                            .addGroup(aboutDialogLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(aboutDialogLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(closeAboutDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        aboutDialogLayout.setVerticalGroup(
-            aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(aboutDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(closeAboutDialog)
-                .addContainerGap(87, Short.MAX_VALUE))
-        );
-
-        consoleFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        consoleFrame.setTitle("Console");
-        consoleFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Logo32.png")));
-        consoleFrame.setMinimumSize(new java.awt.Dimension(900, 530));
-        consoleFrame.setResizable(false);
-
-        textAreaConsole.setEditable(false);
-        textAreaConsole.setColumns(20);
-        textAreaConsole.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        textAreaConsole.setRows(5);
-        jScrollPane2.setViewportView(textAreaConsole);
-
-        buttonCopyConsole.setText("Copy to Clipboard");
-        buttonCopyConsole.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCopyConsoleActionPerformed(evt);
-            }
-        });
-
-        buttonCloseWindow.setText("Close Window");
-        buttonCloseWindow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCloseWindowActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout consoleFrameLayout = new javax.swing.GroupLayout(consoleFrame.getContentPane());
-        consoleFrame.getContentPane().setLayout(consoleFrameLayout);
-        consoleFrameLayout.setHorizontalGroup(
-            consoleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(consoleFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(consoleFrameLayout.createSequentialGroup()
-                .addGap(270, 270, 270)
-                .addComponent(buttonCopyConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(buttonCloseWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        consoleFrameLayout.setVerticalGroup(
-            consoleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(consoleFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(consoleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCopyConsole)
-                    .addComponent(buttonCloseWindow))
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle(GlobalManager.APP_NAME + " | " + GlobalManager.VERSION + " | By " + GlobalManager.AUTHOR);
-        setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Cursor.png")), new Point(getX(),
+        aboutDialog.setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Cursor.png")), new Point(getX(),
             getY()), "img"));
+aboutDialog.setFocusableWindowState(false);
+aboutDialog.setIconImage(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Logo32.png")));
+aboutDialog.setMinimumSize(new java.awt.Dimension(402, 300));
+aboutDialog.setResizable(false);
+aboutDialog.setType(java.awt.Window.Type.POPUP);
+Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+aboutDialog.setLocation(dim.width/2-aboutDialog.getSize().width/2, dim.height/2-aboutDialog.getSize().height/2);
+
+jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+jLabel1.setText("LSPD Tool Version 3");
+
+jLabel2.setText("<html>  The LSPD Tool Version 3 was coded by Chenko for the MTG LSPD. This tool has many improvements from the first two versions including the ability to edit the times and fines of almost every crime. All of the data is stored in a SQLite database minimizing the harddrive footprint of the application while maximizing functionality. It also features extensive error logging and task logging to allow for quick and easy fixing of any problems that may arrise.  <br><br> If you wish to support the developer hit <b>About</b> and then <b>Support the Dev</b>");
+
+closeAboutDialog.setText("Close");
+closeAboutDialog.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        closeAboutDialogActionPerformed(evt);
+    }
+    });
+
+    javax.swing.GroupLayout aboutDialogLayout = new javax.swing.GroupLayout(aboutDialog.getContentPane());
+    aboutDialog.getContentPane().setLayout(aboutDialogLayout);
+    aboutDialogLayout.setHorizontalGroup(
+        aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(aboutDialogLayout.createSequentialGroup()
+            .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(aboutDialogLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                        .addComponent(jSeparator3)
+                        .addGroup(aboutDialogLayout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE))))
+                .addGroup(aboutDialogLayout.createSequentialGroup()
+                    .addGap(150, 150, 150)
+                    .addComponent(closeAboutDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addContainerGap())
+    );
+    aboutDialogLayout.setVerticalGroup(
+        aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(aboutDialogLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jLabel1)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(closeAboutDialog)
+            .addContainerGap(87, Short.MAX_VALUE))
+    );
+
+    consoleFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+    consoleFrame.setTitle("Console");
+    consoleFrame.setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Cursor.png")), new Point(getX(),
+        getY()), "img"));
+consoleFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Logo32.png")));
+consoleFrame.setMinimumSize(new java.awt.Dimension(900, 530));
+consoleFrame.setResizable(false);
+
+textAreaConsole.setEditable(false);
+textAreaConsole.setColumns(20);
+textAreaConsole.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+textAreaConsole.setRows(5);
+jScrollPane2.setViewportView(textAreaConsole);
+
+buttonCopyConsole.setText("Copy to Clipboard");
+buttonCopyConsole.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+    buttonCopyConsoleActionPerformed(evt);
+    }
+    });
+
+    buttonCloseWindow.setText("Close Window");
+    buttonCloseWindow.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            buttonCloseWindowActionPerformed(evt);
+        }
+    });
+
+    javax.swing.GroupLayout consoleFrameLayout = new javax.swing.GroupLayout(consoleFrame.getContentPane());
+    consoleFrame.getContentPane().setLayout(consoleFrameLayout);
+    consoleFrameLayout.setHorizontalGroup(
+        consoleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(consoleFrameLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+            .addContainerGap())
+        .addGroup(consoleFrameLayout.createSequentialGroup()
+            .addGap(270, 270, 270)
+            .addComponent(buttonCopyConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(57, 57, 57)
+            .addComponent(buttonCloseWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+    consoleFrameLayout.setVerticalGroup(
+        consoleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(consoleFrameLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(consoleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(buttonCopyConsole)
+                .addComponent(buttonCloseWindow))
+            .addContainerGap(35, Short.MAX_VALUE))
+    );
+
+    formCriminalReport.setTitle("Criminal Report Form");
+    formCriminalReport.setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Cursor.png")), new Point(getX(),
+        getY()), "img"));
+formCriminalReport.setIconImage(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Logo32.png")));
+formCriminalReport.setMaximumSize(new java.awt.Dimension(838, 830));
+formCriminalReport.setMinimumSize(new java.awt.Dimension(838, 830));
+formCriminalReport.setResizable(false);
+
+jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel13.setText("Mugshot:  ");
+
+jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+jLabel11.setText("Criminal Report Form");
+
+jTextField1.setText("Paste imgur link here");
+
+jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel14.setText("Offender's Full Name: ");
+
+jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel15.setText("Offender's Contact Information:");
+
+jTextArea1.setColumns(20);
+jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+jTextArea1.setRows(5);
+jTextArea1.setText("Hit enter for a new line");
+jTextArea1.setMaximumSize(new java.awt.Dimension(204, 79));
+jTextArea1.setMinimumSize(new java.awt.Dimension(204, 79));
+jScrollPane3.setViewportView(jTextArea1);
+
+jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel16.setText("Arresting Officer(s):");
+
+jTextArea2.setColumns(20);
+jTextArea2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+jTextArea2.setRows(5);
+jTextArea2.setMaximumSize(new java.awt.Dimension(204, 79));
+jTextArea2.setMinimumSize(new java.awt.Dimension(204, 79));
+jScrollPane4.setViewportView(jTextArea2);
+
+jSeparator11.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel17.setText("Cruiser Number:");
+
+jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel18.setText("Crimes Commited: ");
+
+textAreaCrimes.setColumns(20);
+textAreaCrimes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+textAreaCrimes.setRows(5);
+textAreaCrimes.setText("Hit enter for a new line");
+textAreaCrimes.setMaximumSize(new java.awt.Dimension(204, 79));
+textAreaCrimes.setMinimumSize(new java.awt.Dimension(204, 79));
+jScrollPane5.setViewportView(textAreaCrimes);
+
+jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel19.setText("Confiscated Items: ");
+
+textAreaCrimes1.setColumns(20);
+textAreaCrimes1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+textAreaCrimes1.setRows(5);
+textAreaCrimes1.setText("Hit enter for a new line");
+textAreaCrimes1.setMaximumSize(new java.awt.Dimension(204, 79));
+textAreaCrimes1.setMinimumSize(new java.awt.Dimension(204, 79));
+jScrollPane6.setViewportView(textAreaCrimes1);
+
+jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel20.setText("Time and Date of Incident: ");
+
+jTextField4.setText("Time + YYYY MM DD");
+
+jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel21.setText("Time and Date of Arrest: ");
+
+arrestTimeDate.setText("Time + YYYY MM DD");
+
+jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel22.setText("License Strikes?:");
+
+textAreaCrimes2.setColumns(20);
+textAreaCrimes2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+textAreaCrimes2.setRows(5);
+textAreaCrimes2.setText("Hit enter for a new line");
+textAreaCrimes2.setMaximumSize(new java.awt.Dimension(204, 79));
+textAreaCrimes2.setMinimumSize(new java.awt.Dimension(204, 79));
+jScrollPane7.setViewportView(textAreaCrimes2);
+
+jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel23.setText("Impounded Vehicles:");
+
+textAreaCrimes3.setColumns(20);
+textAreaCrimes3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+textAreaCrimes3.setRows(5);
+textAreaCrimes3.setText("Hit enter for a new line");
+textAreaCrimes3.setMaximumSize(new java.awt.Dimension(204, 79));
+textAreaCrimes3.setMinimumSize(new java.awt.Dimension(204, 79));
+jScrollPane8.setViewportView(textAreaCrimes3);
+
+jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel24.setText("Summary of Events:");
+
+jTextArea3.setColumns(20);
+jTextArea3.setRows(5);
+jTextArea3.setMaximumSize(new java.awt.Dimension(164, 94));
+jTextArea3.setMinimumSize(new java.awt.Dimension(164, 94));
+jScrollPane9.setViewportView(jTextArea3);
+
+jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+jLabel25.setText("Additonal Notes:");
+
+jTextArea4.setColumns(20);
+jTextArea4.setRows(5);
+jTextArea4.setMaximumSize(new java.awt.Dimension(164, 94));
+jTextArea4.setMinimumSize(new java.awt.Dimension(164, 94));
+jScrollPane10.setViewportView(jTextArea4);
+
+jButton4.setText("Copy to Clipboard + Search Forum");
+jButton4.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+    jButton4ActionPerformed(evt);
+    }
+    });
+
+    javax.swing.GroupLayout formCriminalReportLayout = new javax.swing.GroupLayout(formCriminalReport.getContentPane());
+    formCriminalReport.getContentPane().setLayout(formCriminalReportLayout);
+    formCriminalReportLayout.setHorizontalGroup(
+        formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(formCriminalReportLayout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jSeparator10, javax.swing.GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE)
+                .addGroup(formCriminalReportLayout.createSequentialGroup()
+                    .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(formCriminalReportLayout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(formCriminalReportLayout.createSequentialGroup()
+                                    .addComponent(jLabel13)
+                                    .addGap(75, 75, 75)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(formCriminalReportLayout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel15)
+                                .addComponent(jLabel18)
+                                .addComponent(jLabel19)
+                                .addComponent(jLabel22)
+                                .addComponent(jLabel23)
+                                .addGroup(formCriminalReportLayout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(53, 53, 53)
+                            .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(formCriminalReportLayout.createSequentialGroup()
+                                    .addGap(59, 59, 59)
+                                    .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(formCriminalReportLayout.createSequentialGroup()
+                                                .addGap(10, 10, 10)
+                                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel16)
+                                            .addGroup(formCriminalReportLayout.createSequentialGroup()
+                                                .addComponent(jLabel17)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField3)))
+                                        .addGroup(formCriminalReportLayout.createSequentialGroup()
+                                            .addComponent(jLabel20)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(formCriminalReportLayout.createSequentialGroup()
+                                            .addComponent(jLabel21)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(arrestTimeDate, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel24)
+                                        .addComponent(jLabel25)
+                                        .addGroup(formCriminalReportLayout.createSequentialGroup()
+                                            .addGap(10, 10, 10)
+                                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(formCriminalReportLayout.createSequentialGroup()
+                                    .addGap(69, 69, 69)
+                                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(formCriminalReportLayout.createSequentialGroup()
+                                    .addGap(152, 152, 152)
+                                    .addComponent(jButton4))))
+                        .addComponent(jLabel11))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addContainerGap())
+    );
+    formCriminalReportLayout.setVerticalGroup(
+        formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(formCriminalReportLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jLabel11)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(formCriminalReportLayout.createSequentialGroup()
+                    .addGap(40, 40, 40)
+                    .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel13)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel16))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(formCriminalReportLayout.createSequentialGroup()
+                            .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel14)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel15)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel18)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel19)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel22)
+                            .addGap(16, 16, 16)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel23)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(formCriminalReportLayout.createSequentialGroup()
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel17)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(22, 22, 22)
+                            .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel21)
+                                .addComponent(arrestTimeDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(formCriminalReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel20)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(24, 24, 24)
+                            .addComponent(jLabel24)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel25)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(5, 5, 5)
+                    .addComponent(jButton4))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formCriminalReportLayout.createSequentialGroup()
+                    .addGap(18, 18, 18)
+                    .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addContainerGap(58, Short.MAX_VALUE))
+    );
+
+    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setTitle(GlobalManager.APP_NAME + " | " + GlobalManager.VERSION + " | By " + GlobalManager.AUTHOR);
+    setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Cursor.png")), new Point(getX(),
+        getY()), "img"));
 setIconImage(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("resources/images/Logo32.png")));
 
 catLabelVehicular.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -538,13 +852,13 @@ catLabelEditCrime.setText("Edit Crime");
 
 DefaultListModel listModel = new DefaultListModel<String>();
 for(String key : CrimeManager.crimeObjects.keySet()) {
-    listModel.addElement(key);
+listModel.addElement(key);
+}
+editCrimeList.setModel(listModel);
+editCrimeList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+    public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+        editCrimeListValueChanged(evt);
     }
-    editCrimeList.setModel(listModel);
-    editCrimeList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-        public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-            editCrimeListValueChanged(evt);
-        }
     });
     jScrollPane1.setViewportView(editCrimeList);
 
@@ -635,6 +949,24 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
 
     radioButtonAssault.setText("<html><i>Of an LEO");
 
+    jButton3.setBackground(new java.awt.Color(255, 255, 255));
+    jButton3.setForeground(new java.awt.Color(255, 255, 255));
+    jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lvpd/tool/resources/images/donate.gif"))); // NOI18N
+    jButton3.setBorderPainted(false);
+    jButton3.setContentAreaFilled(false);
+    jButton3.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton3ActionPerformed(evt);
+        }
+    });
+
+    buttonCreateCrimnalReport.setText("Create Criminal Report");
+    buttonCreateCrimnalReport.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            buttonCreateCrimnalReportActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
     mainPanel.setLayout(mainPanelLayout);
     mainPanelLayout.setHorizontalGroup(
@@ -683,7 +1015,6 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
                             .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(catLabelMedium, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jCheckBox33)
-                                .addComponent(jCheckBox34)
                                 .addGroup(mainPanelLayout.createSequentialGroup()
                                     .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jCheckBox25)
@@ -707,7 +1038,8 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
                                         .addComponent(jCheckBox29)
                                         .addComponent(jCheckBox30)
                                         .addComponent(jCheckBox31)
-                                        .addComponent(jCheckBox32))
+                                        .addComponent(jCheckBox32)
+                                        .addComponent(jCheckBox34))
                                     .addGap(19, 19, 19)
                                     .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jCheckBox63)
@@ -804,39 +1136,49 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
                         .addComponent(editCrimeSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(mainPanelLayout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(catLabeLimits1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(catLabeLimits1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(42, 42, 42)
+                                            .addComponent(spinnerPlayerID, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
+                                                .addGap(1, 1, 1)
+                                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(textFieldName))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
+                                                .addComponent(buttonCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(buttonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGap(42, 42, 42)
-                                    .addComponent(spinnerPlayerID, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(textFieldName))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
-                                        .addComponent(buttonCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(buttonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(42, 42, 42)
-                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelResults, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(catLabeLimits2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(textCommand, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(labelResults, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(catLabeLimits2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(textCommand, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(buttonCreateCrimnalReport)
+                                    .addGap(182, 182, 182))))
+                        .addGroup(mainPanelLayout.createSequentialGroup()
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2)
                             .addGap(193, 193, 193))))))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton3)
+            .addContainerGap())
     );
     mainPanelLayout.setVerticalGroup(
         mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1018,86 +1360,85 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
             .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addComponent(catLabeLimits, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(textMaxTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(textMaxFine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(textMaxStrikes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(editCrimeSave1))
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(catLabeLimits1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(catLabeLimits2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(3, 3, 3)
+                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(5, 5, 5)
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(spinnerPlayerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(labelResults)))
                     .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(mainPanelLayout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(textFieldTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(textFieldFine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(textFieldStrikes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(editCrimeSave))
+                            .addGap(10, 10, 10)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(buttonCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buttonReset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(mainPanelLayout.createSequentialGroup()
-                            .addComponent(catLabelEditCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGap(18, 18, 18)
+                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textCommand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(18, 18, 18)
+                    .addComponent(jButton2)
+                    .addGap(18, 18, 18)
+                    .addComponent(buttonCreateCrimnalReport))
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addComponent(catLabelEditCrime, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(editCrimeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1))
-                            .addGap(0, 0, Short.MAX_VALUE)))
-                    .addContainerGap(111, Short.MAX_VALUE))
-                .addGroup(mainPanelLayout.createSequentialGroup()
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton1)))
                         .addGroup(mainPanelLayout.createSequentialGroup()
-                            .addComponent(catLabeLimits, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(textMaxTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(textMaxFine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldFine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(textMaxStrikes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldStrikes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(editCrimeSave1))
-                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(mainPanelLayout.createSequentialGroup()
-                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(catLabeLimits1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(catLabeLimits2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(3, 3, 3)
-                            .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(5, 5, 5)
-                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(spinnerPlayerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(textFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addGap(3, 3, 3)
-                                    .addComponent(labelResults)))
-                            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(buttonCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(buttonReset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(textCommand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton2)))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(editCrimeSave)))))
+            .addGap(41, 41, 41)
+            .addComponent(jButton3)
+            .addContainerGap())
     );
 
     catLabelVehicular.getAccessibleContext().setAccessibleDescription("");
@@ -1154,7 +1495,7 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
 
     menuAbout.setText("About");
 
-    menuAboutDev.setText("About the LVPD Tool");
+    menuAboutDev.setText("About the LSPD Tool");
     menuAboutDev.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             menuAboutDevActionPerformed(evt);
@@ -1287,6 +1628,90 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
         ActionManager.OnAction(evt);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         try {
+            URL support = new URL(GlobalManager.SUPPORT_URL);
+            java.awt.Desktop.getDesktop().browse(support.toURI());
+        }
+        catch (IOException | URISyntaxException e) {
+            Logger.Logger( e.getClass().getName() + ": " + e.getMessage() );
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void buttonCreateCrimnalReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateCrimnalReportActionPerformed
+        jTextField2.setText(textFieldName.getText());
+        formCriminalReport.setVisible(true);
+    }//GEN-LAST:event_buttonCreateCrimnalReportActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //Copy to Clipboard + Search Forum button
+        String report = null;
+        report = 
+        "[INDENT=1][CENTER][IMG]http://i.imgur.com/jUIyIJs.png[/IMG][/CENTER][/INDENT]\n\n" + 
+
+        "[INDENT=1][CENTER][U][I][B]Criminal Resources Department[/B][/I][/U][/CENTER][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Mugshot[/B]: [IMG] " + jTextField1.getText() + "[/IMG][/FONT][/SIZE][/LEFT][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Offender's Full Name[/B]: \n" + jTextField2.getText() +"[/FONT][/SIZE][/LEFT][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Offender's Contact information:[/B] \n" + jTextArea1.getText() + "[/FONT][/SIZE][/LEFT][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Arresting Officer[/B]: \n" + jTextArea2.getText() + "[/FONT][/SIZE][/LEFT][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Cruiser Number[/B]: \n" + jTextField3.getText() + "[/FONT][/SIZE][/LEFT][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Time and Date of the incident[/B]: \n" + jTextField4.getText() + "[/FONT][/SIZE][/LEFT][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Crimes Committed[/B]: \n" + textAreaCrimes1.getText() + "[/FONT][/SIZE][/LEFT][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]License Strikes[/B]: \n" + textAreaCrimes2.getText() + "[/FONT][/SIZE][/LEFT][/INDENT]\n\n" + 
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Confiscated Items[/B]: \n" + textAreaCrimes.getText() + "[/FONT][/SIZE][/LEFT][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Vehicle(s) Impounded[/B]: \n" + textAreaCrimes3.getText() + "[/FONT][/SIZE][/LEFT][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Summarize what happened[/B]: \n" + jTextArea3.getText() + "[/FONT][/SIZE][/LEFT][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Time and date of the arrest[/B]: \n" + arrestTimeDate.getText() + "[/FONT][/SIZE][/LEFT][/INDENT]\n\n" +
+
+        "[INDENT=1][LEFT][SIZE=3][FONT=helvetica][B]Additional notes (optional)[/B]: \n" + jTextArea4.getText() + "[/FONT][/SIZE][/LEFT][/INDENT]\n\n";
+        
+        StringSelection stringSelection = new StringSelection(report);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(stringSelection, stringSelection);
+        
+        URL criminalThread = null;
+        try {
+            String name = jTextField2.getText();
+            int idx = 0;
+            int count = 0;
+            
+            for(int i = 0, n = name.length(); i < n; i++) {
+                if(name.charAt(i) == ' ') {
+                    idx = i;
+                    count++;
+                }
+                if(count == 1){
+                    break;
+                }
+            }
+            
+            StringBuilder search = new StringBuilder(name);
+            search.setCharAt(idx, '+');
+            
+            criminalThread = new URL("http://mt-gaming.com/index.php/search/search?keywords="+search+"&title_only=1&nodes[]=246");
+        }
+        catch(MalformedURLException e) {
+        }
+       
+        try { 
+            java.awt.Desktop.getDesktop().browse(criminalThread.toURI());
+        }
+        catch (IOException | URISyntaxException e){
+        } 
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1351,9 +1776,11 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDialog aboutDialog;
+    public javax.swing.JTextField arrestTimeDate;
     public javax.swing.JButton buttonCalculate;
     public javax.swing.JToggleButton buttonCloseWindow;
     public javax.swing.JButton buttonCopyConsole;
+    public javax.swing.JButton buttonCreateCrimnalReport;
     public javax.swing.JButton buttonReset;
     public javax.swing.JLabel catLabeLimits;
     public javax.swing.JLabel catLabeLimits1;
@@ -1373,8 +1800,11 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
     public javax.swing.JButton editCrimeSave1;
     public static javax.swing.JTextField editCrimeSearch;
     public static javax.swing.JComboBox firearmComboBox;
+    public static javax.swing.JFrame formCriminalReport;
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton4;
     public javax.swing.JCheckBox jCheckBox1;
     public javax.swing.JCheckBox jCheckBox10;
     public javax.swing.JCheckBox jCheckBox11;
@@ -1440,8 +1870,22 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
     public javax.swing.JCheckBox jCheckBox9;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
+    public javax.swing.JLabel jLabel11;
     public javax.swing.JLabel jLabel12;
+    public javax.swing.JLabel jLabel13;
+    public javax.swing.JLabel jLabel14;
+    public javax.swing.JLabel jLabel15;
+    public javax.swing.JLabel jLabel16;
+    public javax.swing.JLabel jLabel17;
+    public javax.swing.JLabel jLabel18;
+    public javax.swing.JLabel jLabel19;
     public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel20;
+    public javax.swing.JLabel jLabel21;
+    public javax.swing.JLabel jLabel22;
+    public javax.swing.JLabel jLabel23;
+    public javax.swing.JLabel jLabel24;
+    public javax.swing.JLabel jLabel25;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel5;
@@ -1453,8 +1897,18 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
     public javax.swing.JMenuItem jMenuItem2;
     public javax.swing.JMenuItem jMenuItem3;
     public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane10;
     public javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JScrollPane jScrollPane3;
+    public javax.swing.JScrollPane jScrollPane4;
+    public javax.swing.JScrollPane jScrollPane5;
+    public javax.swing.JScrollPane jScrollPane6;
+    public javax.swing.JScrollPane jScrollPane7;
+    public javax.swing.JScrollPane jScrollPane8;
+    public javax.swing.JScrollPane jScrollPane9;
     public javax.swing.JSeparator jSeparator1;
+    public javax.swing.JSeparator jSeparator10;
+    public javax.swing.JSeparator jSeparator11;
     public javax.swing.JSeparator jSeparator2;
     public javax.swing.JSeparator jSeparator3;
     public javax.swing.JSeparator jSeparator4;
@@ -1463,6 +1917,14 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
     public javax.swing.JSeparator jSeparator7;
     public javax.swing.JSeparator jSeparator8;
     public javax.swing.JSeparator jSeparator9;
+    public javax.swing.JTextArea jTextArea1;
+    public javax.swing.JTextArea jTextArea2;
+    public javax.swing.JTextArea jTextArea3;
+    public javax.swing.JTextArea jTextArea4;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextField4;
     public static javax.swing.JLabel labelResults;
     public javax.swing.JMenuBar mainMenuBar;
     public static javax.swing.JPanel mainPanel;
@@ -1487,6 +1949,10 @@ for(String key : CrimeManager.crimeObjects.keySet()) {
     public static javax.swing.JSpinner spinnerPot;
     public static javax.swing.JSpinner spinnerSpeed;
     public static javax.swing.JTextArea textAreaConsole;
+    public javax.swing.JTextArea textAreaCrimes;
+    public javax.swing.JTextArea textAreaCrimes1;
+    public javax.swing.JTextArea textAreaCrimes2;
+    public javax.swing.JTextArea textAreaCrimes3;
     public static javax.swing.JTextField textCommand;
     public static javax.swing.JTextField textFieldFine;
     public static javax.swing.JTextField textFieldName;
